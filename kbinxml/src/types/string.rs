@@ -36,7 +36,7 @@ where
     for (i, part) in input.split(' ').enumerate() {
         output[i] = part
             .parse::<T>()
-            .map_err(|e| Box::new(e) as Box<(dyn Error + Send + Sync + 'static)>)
+            .map_err(|e| Box::new(e) as Box<dyn Error + Send + Sync + 'static >)
             .context(StringParseSnafu { node_type })?;
     }
 
